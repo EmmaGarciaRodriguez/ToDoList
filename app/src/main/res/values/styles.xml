@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<style name="BottomNavigation">
+<item name="android:background">@color/purple2</item>
+<item name="itemIconTint">@color/white</item>
+<item name="itemTextColor">@color/white</item>
+</style>
 
-    <style name="BottomNavigation"></style>
 </resources>

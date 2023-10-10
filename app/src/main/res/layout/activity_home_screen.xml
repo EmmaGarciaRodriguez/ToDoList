@@ -32,4 +32,11 @@
         app:labelVisibilityMode="selected"
         style="@style/BottomNavigation"/>
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="369dp"
+        android:layout_height="533dp"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="99dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 </androidx.constraintlayout.widget.ConstraintLayout>
