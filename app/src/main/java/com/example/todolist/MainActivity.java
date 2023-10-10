@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-    //hola buenas hola hola
+
 }
