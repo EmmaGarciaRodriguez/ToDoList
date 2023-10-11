@@ -1,5 +1,6 @@
 package com.example.todolist;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +29,7 @@ public class FirstFragment extends Fragment {
     private String mParam2;
 
     private HomeScreen homeScreen;
+    String[][] datos = new String[100][2];
 
     public FirstFragment(HomeScreen homeScreen) {
         // Required empty public constructor
@@ -62,6 +67,40 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_first, container, false);
+        EditText texto = view.findViewById(R.id.textousuario);
+        DatePicker fecha= view.findViewById(R.id.fechausuario);
+        Button btn = view.findViewById(R.id.aceptar);
+        Button btn1 = view.findViewById(R.id.cancelar);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), SecondFragment.class);
+                String textousu = texto.getText().toString();
+                int day = fecha.getDayOfMonth();
+                int month = fecha.getMonth() + 1; // Los meses comienzan en 0
+                int year = fecha.getYear();
+
+                // Formatea la fecha seleccionada
+                String fechausu = String.format("%02d/%02d/%04d", day, month, year);
+                datos[datos.length][0] = textousu;
+                datos[datos.length][1] = fechausu;
+
+                startActivity(intent);
+            }
+        });
+
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeScreen.onBackPressed();
+                //Intent intent = new Intent(getContext(), SecondFragment.f);
+                //startActivity(intent);
+            }
+        });
         return inflater.inflate(R.layout.fragment_first, container, false);
     }
+
 }

@@ -48,6 +48,7 @@ public class HomeScreen extends AppCompatActivity {
     };
 
 
+
     public void loadFragment(Fragment fragment){
         FragmentTransaction transaction= getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container, fragment);
