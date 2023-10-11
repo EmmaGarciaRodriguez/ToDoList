@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThirdFragment">
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:hint="Editar tarea"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+    <DatePicker
+        android:id="@+id/fechausuario"
+        android:layout_width="wrap_content"
+        android:layout_height="210dp"
+        android:layout_margin="30sp" />
 
-</FrameLayout>
+
+    <EditText
+        android:id="@+id/texto"
+        android:layout_width="357dp"
+        android:layout_height="78dp"
+        android:layout_margin="20sp"
+        android:hint="" />
+
+    <Button
+        android:id="@+id/aceptar"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:backgroundTint="@color/purple2"
+        android:textColorHint="@color/white"
+        android:hint="Editar"
+        />
+
+
+    <Button
+        android:id="@+id/cancelar"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:backgroundTint="@color/purple2"
+        android:textColorHint="@color/white"
+        android:hint="Cancelar"
+        />
+
+
+
+</LinearLayout>

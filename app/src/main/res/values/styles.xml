@@ -4,6 +4,7 @@
 <item name="android:background">@color/purple2</item>
 <item name="itemIconTint">@color/white</item>
 <item name="itemTextColor">@color/white</item>
+    name="MyDatePickerStyle" >
 </style>
 
 </resources>

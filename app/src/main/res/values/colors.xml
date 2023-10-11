@@ -8,4 +8,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="customTextColor">#FFBB86FC</color>
+    <color name="customBackgroundColor">#FF6200EE</color>
 </resources>
