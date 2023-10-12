@@ -2,7 +2,9 @@ package com.example.todolist;
 
 import android.widget.DatePicker;
 
-public class task {
+import java.io.Serializable;
+
+public class task implements Serializable {
     private String text;
     private String date;
 

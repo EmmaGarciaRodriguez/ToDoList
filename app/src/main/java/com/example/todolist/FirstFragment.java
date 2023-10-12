@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -36,9 +37,11 @@ public class FirstFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Button btn;
+    private Button btn1;
 
     private HomeScreen homeScreen;
-    private ArrayList<task> listManager;
+    private ListManager listManager;
     String[][] datos = new String[100][2];
 
     public FirstFragment(HomeScreen homeScreen) {
@@ -74,20 +77,20 @@ public class FirstFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_first, container, false);
         EditText texto = view.findViewById(R.id.textousuario);
         DatePicker fecha= view.findViewById(R.id.fechausuario);
-        Button btn = view.findViewById(R.id.aceptar);
-        Button btn1 = view.findViewById(R.id.cancelar);
+        btn = view.findViewById(R.id.aceptar);
+        btn1 = view.findViewById(R.id.cancelar);
 
         loadData();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
                 Intent intent = new Intent(getContext(), SecondFragment.class);
                 String textousu = texto.getText().toString();
@@ -99,7 +102,11 @@ public class FirstFragment extends Fragment {
                 String fechausu = String.format("%02d/%02d/%04d", day, month, year);
                 datos[datos.length][0] = textousu;
                 datos[datos.length][1] = fechausu;
-                saveData();
+
+                int duration = Toast.LENGTH_SHORT;
+                CharSequence text = "Se crea";
+                Toast toast = Toast.makeText(getContext(), text, duration);
+                toast.show();
 
                 startActivity(intent);
             }
@@ -108,13 +115,20 @@ public class FirstFragment extends Fragment {
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                homeScreen.onBackPressed();
+            public void onClick(View view) {
+                //homeScreen.onBackPressed();
                 //Intent intent = new Intent(getContext(), SecondFragment.f);
                 //startActivity(intent);
+                saveData();
+                int duration = Toast.LENGTH_SHORT;
+                CharSequence text = "Se crea";
+                Toast toast = Toast.makeText(getContext(), text, duration);
+                toast.show();
+
+
             }
         });
-        return inflater.inflate(R.layout.fragment_first, container, false);
+        return view;
     }
 
     private void saveData() {
@@ -134,14 +148,14 @@ public class FirstFragment extends Fragment {
         listManager = gson.fromJson(json, type);
 
         if (listManager == null){
-            this.listManager = new ListManager().getTasklist();
+            this.listManager = new ListManager();
             int duration = Toast.LENGTH_SHORT;
             CharSequence text = "Se crea";
             Toast toast = Toast.makeText(this.getActivity(), text, duration);
             toast.show();
         } else{
             int duration = Toast.LENGTH_SHORT;
-            CharSequence text = "Se guarda";
+            CharSequence text = "Se carga";
             Toast toast = Toast.makeText(this.getActivity(), text, duration);
             toast.show();
         }

@@ -8,7 +8,7 @@ public class ListManager implements Serializable {
     private ArrayList<task> tasklist;
 
     public ListManager() {
-        this.tasklist = new ArrayList<task>();
+        this.tasklist = new ArrayList<>();
     }
 
     public ArrayList<task> getTasklist() {
