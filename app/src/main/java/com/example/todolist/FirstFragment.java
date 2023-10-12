@@ -45,7 +45,6 @@ public class FirstFragment extends Fragment {
 
     private HomeScreen homeScreen;
     private ListManager listManager;
-    String[][] datos = new String[100][2];
     String textousu, fechausu;
 
     public FirstFragment(HomeScreen homeScreen) {
@@ -105,9 +104,6 @@ public class FirstFragment extends Fragment {
 
                 // Formatea la fecha seleccionada
                 fechausu = String.format("%02d/%02d/%04d", day, month, year);
-                //datos[datos.length][0] = textousu;
-                //datos[datos.length][1] = fechausu;
-
                 addTask();
                 saveData();
 
@@ -115,9 +111,9 @@ public class FirstFragment extends Fragment {
                 //Volver al 2ndo Fragmento
                 homeScreen.loadFragment(homeScreen.secondFragment);
                 homeScreen.getNavigation().getMenu().getItem(1).setChecked(true);
-
+                //para probar que las tareas se guardan se muestra por consola
                 Log.d(TAG, "Las tareas guardadas son: " + listManager.getTasklist().get(0).getText() + listManager.getTasklist().get(0).getDate() + listManager.getTasklist().get(1).getText() + listManager.getTasklist().get(1).getDate() + listManager.getTasklist().get(2).getText() + listManager.getTasklist().get(2).getDate());
-                //startActivity(intent);
+
             }
         });
 
@@ -188,6 +184,4 @@ public class FirstFragment extends Fragment {
         toast.show();
 
     }
-
-    //COMENTARIO DE PRUEBA
 }
