@@ -1,0 +1,17 @@
+package com.example.todolist;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class ListManager implements Serializable {
+
+    private ArrayList<task> tasklist;
+
+    public ListManager() {
+        this.tasklist = new ArrayList<task>();
+    }
+
+    public ArrayList<task> getTasklist() {
+        return tasklist;
+    }
+}
