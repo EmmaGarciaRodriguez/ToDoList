@@ -11,16 +11,17 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
 public class HomeScreen extends AppCompatActivity {
     FirstFragment firstFragment = new FirstFragment(this);
     SecondFragment secondFragment = new SecondFragment(this);
     ThirdFragment thirdFragment = new ThirdFragment(this);
-
+    BottomNavigationView navigation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-        BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
+        navigation = findViewById(R.id.bottom_navigation);
         navigation.getMenu().getItem(1).setChecked(true);
         loadFragment(secondFragment);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -55,5 +56,8 @@ public class HomeScreen extends AppCompatActivity {
         transaction.commit();
     }
 
+    public BottomNavigationView getNavigation() {
+        return navigation;
     }
+}
 
