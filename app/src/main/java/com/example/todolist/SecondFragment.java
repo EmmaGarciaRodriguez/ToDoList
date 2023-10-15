@@ -1,6 +1,7 @@
 package com.example.todolist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -79,6 +81,16 @@ public class SecondFragment extends Fragment {
 
         ListAdapter adapter = new ListAdapter(getActivity(),listManager.getTasklist());
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                task t = listManager.getTasklist().get(position);
+                Intent intent = new Intent(getContext(), ShowTask.class);
+                intent.putExtra("task", t);
+
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
