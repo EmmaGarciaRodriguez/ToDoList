@@ -175,7 +175,9 @@ public class FirstFragment extends Fragment {
         //Crear nueva tarea
         task tareaNueva = new task(textousu, fechausu);
 
-        listManager.getTasklist().add(tareaNueva);
+        listManager.addTask(tareaNueva);
+
+
 
         //Mostrar  mensaje tarea guardada
         int duration = Toast.LENGTH_SHORT;

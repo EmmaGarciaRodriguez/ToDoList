@@ -14,4 +14,8 @@ public class ListManager implements Serializable {
     public ArrayList<task> getTasklist() {
         return tasklist;
     }
+
+    public void addTask(task t){
+        tasklist.add(t);
+    }
 }
