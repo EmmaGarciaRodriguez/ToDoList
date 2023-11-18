@@ -87,6 +87,8 @@ public class SecondFragment extends Fragment {
                 task t = listManager.getTasklist().get(position);
                 Intent intent = new Intent(getContext(), ShowTask.class);
                 intent.putExtra("task", t);
+                intent.putExtra("list", listManager);
+                intent.putExtra("index", position);
 
                 startActivity(intent);
             }

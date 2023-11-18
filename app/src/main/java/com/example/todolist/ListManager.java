@@ -18,4 +18,8 @@ public class ListManager implements Serializable {
     public void addTask(task t){
         tasklist.add(t);
     }
+    public void addTaskbyPos(task t, int pos){
+        tasklist.set(pos,t);
+    }
+
 }

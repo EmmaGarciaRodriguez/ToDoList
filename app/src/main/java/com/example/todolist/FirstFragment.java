@@ -46,6 +46,10 @@ public class FirstFragment extends Fragment {
     private HomeScreen homeScreen;
     private ListManager listManager;
     String textousu, fechausu;
+    private int day;
+    private int month;
+    private int year;
+
 
     public FirstFragment(HomeScreen homeScreen) {
         // Required empty public constructor
@@ -98,12 +102,13 @@ public class FirstFragment extends Fragment {
 
                 //Intent intent = new Intent(getContext(), SecondFragment.class);
                 textousu = texto.getText().toString();
-                int day = fecha.getDayOfMonth();
-                int month = fecha.getMonth() + 1; // Los meses comienzan en 0
-                int year = fecha.getYear();
+                day = fecha.getDayOfMonth();
+                month = fecha.getMonth(); // Los meses comienzan en 0
+                year = fecha.getYear();
 
                 // Formatea la fecha seleccionada
-                fechausu = String.format("%02d/%02d/%04d", day, month, year);
+                fechausu = String.format("%02d/%02d/%04d", day, month+1, year);
+
                 addTask();
                 saveData();
 
@@ -112,7 +117,7 @@ public class FirstFragment extends Fragment {
                 homeScreen.loadFragment(homeScreen.secondFragment);
                 homeScreen.getNavigation().getMenu().getItem(1).setChecked(true);
                 //para probar que las tareas se guardan se muestra por consola
-                Log.d(TAG, "Las tareas guardadas son: " + listManager.getTasklist().get(0).getText() + listManager.getTasklist().get(0).getDate() + listManager.getTasklist().get(1).getText() + listManager.getTasklist().get(1).getDate() + listManager.getTasklist().get(2).getText() + listManager.getTasklist().get(2).getDate());
+                //Log.d(TAG, "Las tareas guardadas son: " + listManager.getTasklist().get(0).getText() + listManager.getTasklist().get(0).getDate() + listManager.getTasklist().get(1).getText() + listManager.getTasklist().get(1).getDate() + listManager.getTasklist().get(2).getText() + listManager.getTasklist().get(2).getDate());
 
             }
         });
@@ -173,7 +178,7 @@ public class FirstFragment extends Fragment {
     private void addTask(){
 
         //Crear nueva tarea
-        task tareaNueva = new task(textousu, fechausu);
+        task tareaNueva = new task(textousu, fechausu,year,month,day);
 
         listManager.addTask(tareaNueva);
 

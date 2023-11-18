@@ -3,4 +3,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Aún no hay recordatorios que mostrar</string>
     <string name="title_activity_show_task">ShowTask</string>
+    <string name="title_activity_edit_task">EditTask</string>
 </resources>

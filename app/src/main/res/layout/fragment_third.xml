@@ -1,57 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".SecondFragment">
+
+    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
-        android:hint="Editar tarea"
+        android:hint="PULSA LA TAREA PARA EDITARLA"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
-    <DatePicker
-        android:id="@+id/fechausuario"
-        android:layout_width="wrap_content"
-        android:layout_height="210dp"
-        android:layout_margin="30sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="105dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <EditText
-        android:id="@+id/texto"
-        android:layout_width="357dp"
-        android:layout_height="78dp"
-        android:layout_margin="20sp"
-        android:hint="" />
-
-    <Button
-        android:id="@+id/aceptar"
-        style="@style/TextAppearance.AppCompat.Headline"
-        android:layout_width="369dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:backgroundTint="@color/purple2"
-        android:textColorHint="@color/white"
-        android:hint="Editar"
-        />
-
-
-    <Button
-        android:id="@+id/cancelar"
-        style="@style/TextAppearance.AppCompat.Headline"
-        android:layout_width="369dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:backgroundTint="@color/purple2"
-        android:textColorHint="@color/white"
-        android:hint="Cancelar"
-        />
-
-
-
-</LinearLayout>
+</FrameLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:hint="Editar tarea"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+
+    <EditText
+        android:id="@+id/textousuario"
+        android:layout_width="374dp"
+        android:layout_height="63dp"
+        android:layout_margin="20sp"
+        android:hint="Escriba su tarea.."
+        android:textAlignment="center" />
+
+
+    <DatePicker
+        android:id="@+id/fechausuario"
+        android:layout_width="wrap_content"
+        android:layout_height="210dp"
+        android:layout_margin="30sp" />
+
+    <Button
+        android:id="@+id/aceptar"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:backgroundTint="@color/purple2"
+        android:textColorHint="@color/white"
+        android:hint="Guardar Cambios"
+        android:layout_marginTop="1000sp"
+        />
+
+
+    <Button
+        android:id="@+id/cancelar"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="2sp"
+        android:layout_marginRight="20sp"
+        android:backgroundTint="@color/purple2"
+        android:textColorHint="@color/white"
+        android:hint="Cancelar" />
+
+
+
+</LinearLayout>
