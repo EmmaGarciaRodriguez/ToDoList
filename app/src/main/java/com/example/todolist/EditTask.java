@@ -22,7 +22,7 @@ public class EditTask extends AppCompatActivity {
 
 
     private ListManager listManager;
-    private String textousu, fechausu;
+    private String textousu, fechausu, fechausu2;
     private task t;
     private ListManager list;
     private int pos;
@@ -72,6 +72,7 @@ public class EditTask extends AppCompatActivity {
 
                 // Formatea la fecha seleccionada
                 fechausu = String.format("%02d/%02d/%04d", day, month + 1, year);
+                fechausu2 = String.format("%04d/%02d/%02d", year, month + 1, day);
                 editTask();
                 saveData();
 
@@ -125,7 +126,7 @@ public class EditTask extends AppCompatActivity {
 
     private void editTask(){
 
-        task tareaNueva = new task(textousu, fechausu,year,month,day);
+        task tareaNueva = new task(textousu, fechausu,year,month,day,fechausu2);
 
         listManager.addTaskbyPos(tareaNueva,pos);
 

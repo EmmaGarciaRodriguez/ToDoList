@@ -2,6 +2,7 @@ package com.example.todolist;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ListManager implements Serializable {
 
@@ -12,7 +13,12 @@ public class ListManager implements Serializable {
     }
 
     public ArrayList<task> getTasklist() {
+        sortTaskList();
         return tasklist;
+    }
+
+    public void sortTaskList() {
+        Collections.sort(tasklist, new comparador());
     }
 
     public void addTask(task t){
