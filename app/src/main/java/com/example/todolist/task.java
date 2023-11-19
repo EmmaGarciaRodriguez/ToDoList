@@ -10,13 +10,15 @@ public class task implements Serializable {
     private int day;
     private int month;
     private int year;
+    private String dateOrd;
 
-    public task(String text, String date,int year, int month, int day) {
+    public task(String text, String date,int year, int month, int day, String date2) {
         this.year = year;
         this.month= month;
         this.day= day;
         this.text = text;
         this.date = date;
+        this.dateOrd = date2;
     }
 
     public String getText() {
@@ -57,5 +59,13 @@ public class task implements Serializable {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public String getDateOrd() {
+        return dateOrd;
+    }
+
+    public void setDateOrd(String date) {
+        this.dateOrd = date;
     }
 }

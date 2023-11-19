@@ -45,7 +45,7 @@ public class FirstFragment extends Fragment {
 
     private HomeScreen homeScreen;
     private ListManager listManager;
-    String textousu, fechausu;
+    String textousu, fechausu, fechausu2;
     private int day;
     private int month;
     private int year;
@@ -108,6 +108,7 @@ public class FirstFragment extends Fragment {
 
                 // Formatea la fecha seleccionada
                 fechausu = String.format("%02d/%02d/%04d", day, month+1, year);
+                fechausu2 = String.format("%04d/%02d/%02d", year, month + 1, day);
 
                 addTask();
                 saveData();
@@ -178,7 +179,7 @@ public class FirstFragment extends Fragment {
     private void addTask(){
 
         //Crear nueva tarea
-        task tareaNueva = new task(textousu, fechausu,year,month,day);
+        task tareaNueva = new task(textousu, fechausu,year,month,day,fechausu2);
 
         listManager.addTask(tareaNueva);
 

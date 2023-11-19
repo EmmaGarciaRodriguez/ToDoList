@@ -78,7 +78,7 @@ public class SecondFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_second, container, false);
         ListView listView = view.findViewById(R.id.listView);
         loadData();
-
+        //listManager.sortTaskList();
         ListAdapter adapter = new ListAdapter(getActivity(),listManager.getTasklist());
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
