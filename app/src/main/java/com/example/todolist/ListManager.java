@@ -21,5 +21,7 @@ public class ListManager implements Serializable {
     public void addTaskbyPos(task t, int pos){
         tasklist.set(pos,t);
     }
-
+    public void borrar(int n) {
+        tasklist.remove(n);
+    }
 }
