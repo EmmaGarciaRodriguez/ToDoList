@@ -1,8 +1,10 @@
 package com.example.todolist;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -58,9 +60,29 @@ public class ShowTask extends AppCompatActivity {
         public void onClick(View v) {
             Intent intent = getIntent();
             int pos = (int) intent.getSerializableExtra("index");
-            list.borrar(pos);
-            saveData();
+            removeTask(pos);
         }
 });
+}
+
+private void removeTask(int pos){
+    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    builder.setMessage("¿Está seguro que desea borrar esta tarea?");
+
+    // Add the buttons
+    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int id) {
+            list.borrar(pos);
+            saveData();
+            finish();
+        }
+    });
+    builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int id) {
+            // User cancelled the dialog
+        }
+    });
+    AlertDialog dialog = builder.create();
+    dialog.show();
 }
 }
