@@ -1,8 +1,10 @@
 package com.example.todolist;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -78,7 +80,8 @@ public class SecondFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_second, container, false);
         ListView listView = view.findViewById(R.id.listView);
         loadData();
-        //listManager.sortTaskList();
+        listManager.sortTaskList();
+        saveData();
         ListAdapter adapter = new ListAdapter(getActivity(),listManager.getTasklist());
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -91,6 +94,8 @@ public class SecondFragment extends Fragment {
                 intent.putExtra("index", position);
 
                 startActivity(intent);
+                getActivity().finish();
+
             }
         });
 
@@ -118,4 +123,13 @@ public class SecondFragment extends Fragment {
 
         }
     }
+    private void saveData() {
+        SharedPreferences sharedPreferences= this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(listManager);
+        editor.putString("tasklist", json);
+        editor.apply();
+    }
+
 }

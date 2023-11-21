@@ -80,6 +80,9 @@ public class ThirdFragment extends Fragment {
                 intent.putExtra("index", position);
 
                 startActivity(intent);
+
+                getActivity().finish();
+
             }
         });
 

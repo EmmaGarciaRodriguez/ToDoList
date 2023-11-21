@@ -30,7 +30,7 @@
     <DatePicker
         android:id="@+id/fechausuario"
         android:layout_width="wrap_content"
-        android:layout_height="210dp"
+        android:layout_height="305dp"
         android:layout_margin="30sp" />
 
     <Button
