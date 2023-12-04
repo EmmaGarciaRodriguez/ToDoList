@@ -2,6 +2,8 @@ package com.example.todolist;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,6 +21,7 @@ public class ShowTask extends AppCompatActivity {
     private task t;
     private ListManager list;
     private Button borrar;
+    private Button volver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class ShowTask extends AppCompatActivity {
         TextView name = findViewById(R.id.name);
         TextView date = findViewById(R.id.date);
         borrar = findViewById(R.id.borrar);
+        volver = findViewById(R.id.volver);
 
         Intent intent = getIntent();
 
@@ -63,6 +67,14 @@ public class ShowTask extends AppCompatActivity {
             removeTask(pos);
         }
 });
+
+    volver.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v) {
+            //Intent intent = getIntent();
+            Intent intent = new Intent(ShowTask.this, HomeScreen.class);
+            startActivity(intent);
+        }
+});
 }
 
 private void removeTask(int pos){
@@ -74,7 +86,8 @@ private void removeTask(int pos){
         public void onClick(DialogInterface dialog, int id) {
             list.borrar(pos);
             saveData();
-            finish();
+            Intent intent = new Intent(ShowTask.this, HomeScreen.class);
+            startActivity(intent);
         }
     });
     builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,9 @@
 
     android:orientation="vertical">
 
+
     <TextView
+        android:id="@+id/textView2"
         style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,49 +17,64 @@
         android:hint="Editar tarea"
         android:textAlignment="center"
         android:textSize="25sp"
-        android:textStyle="bold" />
-
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/textousuario"
         android:layout_width="374dp"
-        android:layout_height="63dp"
+        android:layout_height="wrap_content"
         android:layout_margin="20sp"
         android:hint="Escriba su tarea.."
-        android:textAlignment="center" />
-
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/fechausuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <DatePicker
         android:id="@+id/fechausuario"
         android:layout_width="wrap_content"
-        android:layout_height="210dp"
-        android:layout_margin="30sp" />
+        android:layout_height="312dp"
+        android:layout_margin="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.436" />
 
     <Button
         android:id="@+id/aceptar"
         style="@style/TextAppearance.AppCompat.Headline"
-        android:layout_width="369dp"
-        android:layout_height="wrap_content"
+        android:layout_width="171dp"
+        android:layout_height="51dp"
         android:layout_margin="20sp"
         android:backgroundTint="@color/purple2"
+        android:hint="Guardar"
         android:textColorHint="@color/white"
-        android:hint="Guardar Cambios"
-        android:layout_marginTop="1000sp"
-        />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cancelar"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.826" />
 
     <Button
         android:id="@+id/cancelar"
         style="@style/TextAppearance.AppCompat.Headline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20sp"
-        android:layout_marginTop="2sp"
-        android:layout_marginRight="20sp"
+        android:layout_width="163dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="28dp"
         android:backgroundTint="@color/purple2"
+        android:hint="Cancelar"
         android:textColorHint="@color/white"
-        android:hint="Cancelar" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.807" />
 
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

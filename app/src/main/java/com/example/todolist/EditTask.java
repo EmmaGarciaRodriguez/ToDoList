@@ -77,7 +77,8 @@ public class EditTask extends AppCompatActivity {
                 saveData();
 
 
-                finish();
+                Intent intent = new Intent(EditTask.this, HomeScreen.class);
+                startActivity(intent);
             }
         });
 
@@ -85,9 +86,14 @@ public class EditTask extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent(EditTask.this, HomeScreen.class);
+                startActivity(intent);
 
                 //Mostrar mensaje "Cancelado"
+                int duration = Toast.LENGTH_SHORT;
+                CharSequence text = "Acción cancelada";
+                Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+                toast.show();
             }
         });
     }
