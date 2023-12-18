@@ -12,12 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +38,8 @@ public class ThirdFragment extends Fragment {
     private ListManager listManager;
 
     private HomeScreen homeScreen;
+
+
 
     public ThirdFragment(HomeScreen homeScreen) {
         // Required empty public constructor

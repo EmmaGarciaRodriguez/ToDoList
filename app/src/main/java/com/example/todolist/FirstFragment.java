@@ -15,9 +15,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.lang.reflect.Type;
@@ -49,6 +52,9 @@ public class FirstFragment extends Fragment {
     private int day;
     private int month;
     private int year;
+    private String color;
+    private Spinner spinner;
+    private ArrayList<String> colors;
 
 
     public FirstFragment(HomeScreen homeScreen) {
@@ -92,8 +98,36 @@ public class FirstFragment extends Fragment {
         DatePicker fecha= view.findViewById(R.id.fechausuario);
         Button btn = view.findViewById(R.id.aceptar);
         Button btn1 = view.findViewById(R.id.cancelar);
+        spinner = view.findViewById(R.id.spinner);
 
         loadData(); //Carga la lista de tareas
+
+        colors = new ArrayList<>();
+        colors.add("Blanco");
+        colors.add("Rosa");
+        colors.add("Azul");
+        colors.add("Verde");
+        colors.add("Amarillo");
+        colors.add("Rojo");
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_item,colors);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                color = colors.get(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -110,8 +144,15 @@ public class FirstFragment extends Fragment {
                 fechausu = String.format("%02d/%02d/%04d", day, month+1, year);
                 fechausu2 = String.format("%04d/%02d/%02d", year, month + 1, day);
 
+
+
+
+
+
+
                 addTask();
                 saveData();
+                Toast.makeText(getContext(), "Seleccionaste: " + color, Toast.LENGTH_SHORT).show();
 
 
                 //Volver al 2ndo Fragmento
@@ -178,8 +219,11 @@ public class FirstFragment extends Fragment {
 
     private void addTask(){
 
+
+
+
         //Crear nueva tarea
-        task tareaNueva = new task(textousu, fechausu,year,month,day,fechausu2);
+        task tareaNueva = new task(textousu, fechausu,year,month,day,fechausu2,color);
 
         listManager.addTask(tareaNueva);
 

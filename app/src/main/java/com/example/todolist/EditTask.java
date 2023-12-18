@@ -7,15 +7,19 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 
 public class EditTask extends AppCompatActivity {
@@ -29,6 +33,9 @@ public class EditTask extends AppCompatActivity {
     private int day;
     private int month;
     private int year;
+    private Spinner spinner;
+    private ArrayList<String> colors;
+    private String color;
 
 
 
@@ -57,7 +64,17 @@ public class EditTask extends AppCompatActivity {
         Button btn = findViewById(R.id.aceptar);
         Button btn1 = findViewById(R.id.cancelar);
 
+        spinner = findViewById(R.id.spinner);
+
         loadData(); //Carga la lista de tareas
+
+        colors = new ArrayList<>();
+        colors.add("Blanco");
+        colors.add("Rosa");
+        colors.add("Azul");
+        colors.add("Verde");
+        colors.add("Amarillo");
+        colors.add("Rojo");
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +96,22 @@ public class EditTask extends AppCompatActivity {
 
                 Intent intent = new Intent(EditTask.this, HomeScreen.class);
                 startActivity(intent);
+            }
+        });
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,colors);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                color = colors.get(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
@@ -132,7 +165,7 @@ public class EditTask extends AppCompatActivity {
 
     private void editTask(){
 
-        task tareaNueva = new task(textousu, fechausu,year,month,day,fechausu2);
+        task tareaNueva = new task(textousu, fechausu,year,month,day,fechausu2, color);
 
         listManager.addTaskbyPos(tareaNueva,pos);
 
